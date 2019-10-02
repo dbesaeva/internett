@@ -1,0 +1,28 @@
+.line { 
+    border-left: 2px solid red; /* Параметры линии */ 
+    margin-left: 20px; /* Отступ слева */
+    padding-left: 10px; /* Расстояние от линии до текста */ 
+   }
+
+   h1.shadowtitle {
+    position:relative;
+    height:1em;
+    text-align: center;
+}
+h1.shadowtitle span {
+    position:absolute;
+    left:-2px;
+    top:-2px;
+    color:blue;
+    font-family: Arial;
+    text-align: center;
+}
+h1.shadowtitle:before {
+     content:attr(title);
+     position:absolute;
+     left:0;
+     top:0;
+     color:#000000;
+     font-family: Arial;
+     text-align: center;
+}

@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title> Images view </title>
+            <script type="text/javascript" src="./lab.js"></script>
+        </head>
+    <body>
+    <script type="text/javascript">
+        var images = new Array();
+        var i = 0;
+         
+        images[0] = 's1.gif';
+        images[1] = 's2.gif';
+        images[2] = 's3.gif';
+        images[3] = 's4.gif';
+        images[4] = 's5.gif';
+        images[5] = 's6.gif';
+        images[6] = 's7.gif';
+        images[7] = 's8.gif';
+        images[8] = 's9.gif';
+        images[9] = 's10.gif';
+        images[10] = 's11.gif';
+        images[11] = 's12.gif';
+         
+        function viewStart() {
+            document.getElementById("img_main").src = images[i]; 
+            i++;
+            if (i == images.length) {
+                i = 0;
+            }
+            setTimeout("viewStart()",1000);
+        }   
+    </script>
+
+
+
+<script type="text/javascript">
+        function viewSlow() {
+    document.getElementById("img_main").src = images[i]; 
+    i++;
+    if (i == images.length) {
+        i = 0;
+    }
+    setTimeout("viewSlow()",2500);
+}   
+</script>
+
+
+
+<script type="text/javascript">
+    function viewStop() {
+document.getElementById("img_main").src = images[i]; 
+// i++;
+// if (i == images.length) {
+    i = 0;
+
+setTimeout("viewStop()", 0);
+}  
+</script>
+
+
+
+<script type="text/javascript">
+    function viewFaster() {
+document.getElementById("img_main").src = images[i]; 
+i++;
+if (i == images.length) {
+    i = 0;
+}
+setTimeout("viewFaster()",400);
+}   
+</script> 
+    
+    <img src="" id="img_main">
+     
+    <script> viewImages(); </script>
+        <p style="text-align: center"><button id="mybutton" onclick="viewStart();">Старт</button>
+    
+        <p style="text-align: center"><button id="mybutton" onclick="viewStop();">Стоп</button>
+            
+        <p style="text-align: center"><button id="mybutton" onclick="viewFaster();">Быстрее</button>
+                
+        <p style="text-align: center"><button id="mybutton" onclick="viewSlow();">Медленнее</button>
+     
+    </body>
+    </html>

@@ -1,0 +1,27 @@
+table {
+    width: 40%; /* Ширина таблицы */
+    background: white; /* Цвет фона таблицы */
+    color: white; /* Цвет текста */
+    border-spacing: 1px; /* Расстояние между ячейками */
+   }
+   td {
+    background:white; /* Цвет фона ячеек */
+    padding: 5px; /* Поля вокруг текста */ 
+    color: black;}
+    
+    th {
+      background: Silver; /* Цвет фона ячеек */
+      padding: 5px;
+      color: black;
+    }
+
+    .first {
+        font-size: 1em;
+        text-align: center;
+        font-family: Arial
+    }
+
+    .log {
+        font-weight: bold;
+        font-style:Courier New
+    }

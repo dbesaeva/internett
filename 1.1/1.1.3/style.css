@@ -1,0 +1,27 @@
+body
+{background-color:silver; 
+    margin-left:5em; 
+    margin-right:2em; 
+    margin-top:2em; 
+    margin-bottom:2em}
+ 
+a:link {color:maroon}
+ 
+.blue {
+    color:blue; 
+    margin-top:50px; 
+    font-family:arial;
+    text-shadow: #cad5e2 1px 1px 0, #cad5e2 2px 2px 0, 
+                 #cad5e2 3px 3px 0, #cad5e2 4px 4px 0, 
+                 #cad5e2 5px 5px 0;}
+p {
+    align-self: center;
+    background-color: #ffffff; 
+    font-family:arial;
+    line-height:100%; 
+    text-indent:35px;
+    padding-left:30px; 
+    padding-right:100;
+    width:90%
+}
+.frame1 {border-left:5px solid red}

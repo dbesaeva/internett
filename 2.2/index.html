@@ -1,0 +1,96 @@
+<!-- <html>
+<title>Лабораторная 2.2</title>
+<head>
+        <script type="text/javascript">
+                
+                var activate = false;
+                function activate() {
+                activate =! activate;
+                };
+                
+                function grab() {
+                    if(activate) {
+                    imgWdh=document.img.width;
+                    imgHgt=document.img.height;
+                    img.style.pixelLeft=event.x-imgWdh/2;
+                    img.style.pixelTop=event.y-imgHgt/2;
+                    activate=true;
+                    };
+                };
+                </script>     
+
+</head>
+<body onMousemove="grab()">
+        
+<img src="r0.gif"; name="img" onMousemove="grab()" onClick="activate()" dragEnabled style="position: absolute; top: 10; left: 110; cursor:hand;">
+<img src="r1.gif"; name="img" onClick="activate()" style="position: absolute; top: 10; left: 210; cursor:hand;">
+<img src="r2.gif"; name="img" onClick="activate()" style="position: absolute; top: 10; left: 310; cursor:hand;">
+<img src="r3.gif"; name="img" onClick="activate()" style="position: absolute; top: 10; left: 410; cursor:hand;">
+<img src="r4.gif"; name="img" onClick="activate()" style="position: absolute; top: 10; left: 10; cursor:hand;">
+</body>
+</html> -->
+
+
+ <html>
+<title>Лабораторная 2.2</title>
+<head> 
+
+<canvas id="mapid" width="700" height="500" style="cursor: move;">У вас не поддерживается canvas. Используйте браузер Chrome,FireFox или IE10+</canvas>
+<script type="text/javascript">
+
+var drp=false;          
+var pozx=0; var pozy=0; // координаты начала отображения изображения
+var smx=0;   var smy=0;   // координаты мыши - нажали на кнопку
+var emx=0;   var emy=0;   // координаты мыши - опустили на кнопку
+var img = new Image();  // создаем изображение (пустое)
+var ctx = document.getElementById('mapid').getContext('2d');
+img.src="r0.gif"; // загружаем некий файл
+  img.onload = function(){ // как загрузится, определяем какую часть изображения выводим на экран
+    if (img.width<$("#mapid").width()) {
+        iw=img.width;
+        ih=img.height;
+        sw=$("#mapid").width();
+        sh=$("#mapid").height();
+         
+    } else {
+        iw=$("#mapid").width();
+        ih=$("#mapid").height();
+        sw=$("#mapid").width();
+        sh=$("#mapid").height();
+    };    
+    ctx.drawImage(img,pozx,pozy,iw,ih,0,0,sw,sh); // выводим на экран
+  };
+  document.getElementById('mapid').onmousedown= function(e){
+    smx=e.clientX;
+    smy=e.clientY;
+    drp=true;
+};    
+// Событие на опускание кнопки мыши
+document.getElementById('mapid').onmouseup= function(e){
+    drp=false; 
+};
+ 
+document.getElementById('mapid').onmousemove= function(e){
+    if (drp==true){
+        emx=e.clientX;
+        emy=e.clientY;
+        pozx=pozx+(smx-emx);pozy=pozy+(smy-emy);
+// отлавливаем выход за пределы экрана
+        if (pozx<0){pozx=0;};if (pozy<0){pozy=0;};
+        if (pozx>(img.width-iw)){pozx=img.width-iw;};
+        if (pozy>(img.height-ih)){pozy=img.height-ih;};
+        ctx.drawImage(img,pozx,pozy,iw,ih,0,0,sw,sh);
+    };
+    smx=e.clientX;
+    smy=e.clientY;    
+     
+};
+
+</script>
+
+</head>
+<body>
+        
+
+</body>
+</html> 
