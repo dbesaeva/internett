@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Лабораторная работа 2.4</title>
+</head>
+<body>
+        <img src="dg0.gif" name="h10">
+        <img src="dg0.gif" name="h1">
+        <img src="dgc.gif">
+        <img src="dg0.gif" name="m10">
+        <img src="dg0.gif" name="m1">
+        <img src="dgc.gif">
+        <img src="dg0.gif" name="s10">
+        <img src="dg0.gif" name="s1">
+        <img src="dgam.gif" name="hday">
+
+   <script>
+    
+    var half_day;
+    img0=new Image(); img0.src="dg0.gif"
+    img1=new Image(); img1.src="dg1.gif"
+    img2=new Image(); img2.src="dg2.gif"
+    img3=new Image(); img3.src="dg3.gif"
+    img4=new Image(); img4.src="dg4.gif"
+    img5=new Image(); img5.src="dg5.gif"
+    img6=new Image(); img6.src="dg6.gif"
+    img7=new Image(); img7.src="dg7.gif"
+    img8=new Image(); img8.src="dg8.gif"
+    img9=new Image(); img9.src="dg9.gif"
+    day_am=new Image(); day_am.src="dgam.gif"
+    day_pm=new Image(); day_pm.src="dgpm.gif"
+
+
+    function extract(type, hr, min, sec) {
+        if (!document.images) return;
+        if (hr<=9) {
+            document.images.h10.src=img0.src;
+            document.images.h1.src=eval("img"+hr+".src"); }
+        else {
+            document.images.h10.src=eval("img"+Math.floor(hr/10)+".src");
+            document.images.h1.src=eval("img"+(hr%10)+".src"); }
+        if (min<=9) {
+            document.images.m10.src=img0.src;
+            document.images.m1.src=eval("img"+min+".src"); }
+        else {
+            document.images.m10.src=eval("img"+Math.floor(min/10)+".src");
+            document.images.m1.src=eval("img"+(min%10)+".src"); }
+        if (sec<=9) {
+            document.images.s10.src=img0.src;
+            document.images.s1.src=eval("img"+sec+".src"); }
+        else {
+            document.images.s10.src=eval("img"+Math.floor(sec/10)+".src");
+            document.images.s1.src=eval("img"+(sec%10)+".src"); }
+        if (half_day=="AM") document.hday.src=day_am.src;
+        else document.images.hday.src=day_pm.src;
+    }
+
+    function show() {
+        if (!document.images) return;
+        var time=new Date();
+        var hours=time.getHours();
+        var minutes=time.getMinutes();
+        half_day="AM";
+        if ((hours>=12)&&(minutes>=1)||(hours>=13)) {
+        half_day="PM";
+        hours-=12;
+ }
+    if (hours==0) hours=12;
+    extract(half_day, hours, minutes, time.getSeconds());
+    setTimeout("show()", 1000)
+}
+show();
+    
+    </script>
+ </body>
+</html>
