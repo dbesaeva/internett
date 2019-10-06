@@ -12,9 +12,6 @@
         <img src="dgc.gif">
         <img src="dg0.gif" name="m10">
         <img src="dg0.gif" name="m1">
-        <img src="dgc.gif">
-        <img src="dg0.gif" name="s10">
-        <img src="dg0.gif" name="s1">
         <img src="dgam.gif" name="hday">
 
    <script>
@@ -34,7 +31,7 @@
     day_pm=new Image(); day_pm.src="dgpm.gif"
 
 
-    function extract(type, hr, min, sec) {
+    function extract(type, hr, min) {
         if (!document.images) return;
         if (hr<=9) {
             document.images.h10.src=img0.src;
